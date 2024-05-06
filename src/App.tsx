@@ -29,6 +29,7 @@ interface FetchPhotosResponse {
   results: Photo[];
 }
 
+
 const App = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

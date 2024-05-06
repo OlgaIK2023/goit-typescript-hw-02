@@ -8,8 +8,8 @@ import { ImageCardProps } from "../ImageCard/ImageCard"
 export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
   photo: Photo,
-  // lastImageRef: React.RefObject<HTMLImageElement> | null,
-  lastImageRef: React.RefObject<HTMLLIElement> | null; 
+  lastImageRef: React.RefObject<HTMLImageElement> | null,
+  // lastImageRef: React.RefObject<HTMLLIElement> | null; 
   isLastImage: boolean
 }
 

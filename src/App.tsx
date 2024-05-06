@@ -26,16 +26,16 @@ interface FetchPhotosResponse {
 }
 
 const App = () => {
-  const [photos, setPhotos] = useState<FetchPhotosResponse[]>([]);
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [inputSearch, setInputSearch] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [imageSrc, setImageSrc] = useState(null);
-  const [description, setDescription] = useState(null);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
-  const lastImageRef = useRef(null);
+  const lastImageRef = useRef<HTMLImageElement>(null);
 
 useEffect(() => {
     if (!inputSearch) return;
@@ -44,6 +44,7 @@ useEffect(() => {
       setLoading(true);
       setError(false);
       const {total_pages,results}: FetchPhotosResponse =await fetchPhotosByInput(inputSearch, page);
+      
       setPhotos((prevPhotos) => [...prevPhotos, ...results]);
       
       setShowBtn(total_pages > page);
@@ -75,7 +76,7 @@ const scrollToLastImage = () => {
     setScrollBtn(true);
   };
 
-  const openModal = (urlModal,description) => {
+  const openModal = (urlModal: string,description: string) => {
     setImageSrc(urlModal);
     setDescription(description);
   };

@@ -6,10 +6,10 @@ import { ImageCardProps } from "../ImageCard/ImageCard"
 
 export interface ImageGallery extends ImageCardProps {
   photos: Photo[],
-  lastImageRef: <HTMLImageElement> | null
+  lastImageRef: React.RefObject<HTMLImageElement> | null
 }
 
-const ImageGallery = ({ photos, openModal,lastImageRef }: ImageCardProps) => {
+const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGallery) => {
      
   return (
      <ul className={css.gallery_list} >

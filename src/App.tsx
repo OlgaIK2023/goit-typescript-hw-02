@@ -12,12 +12,12 @@ import ScrollIntoView from 'react-scroll-into-view'
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 
-interface Photo {
+export interface Photo {
   id: string
   url: string
   description: string
   urlModal: string
-  openModal: string
+  // openModal: string
 }
 
 interface FetchPhotosResponse {

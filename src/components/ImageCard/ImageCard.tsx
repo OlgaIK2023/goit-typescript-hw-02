@@ -1,6 +1,7 @@
 import css from "./ImageCard.module.css"
+import {Photo} from "../../App"
 
-const ImageCard = ({ url, description, urlModal,openModal}) => {
+const ImageCard = ({ url, description, urlModal,openModal}: Photo) => {
    
   return (
       <div>

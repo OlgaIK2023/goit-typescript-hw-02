@@ -11,16 +11,30 @@ import ImageModal from './components/ImageModal/ImageModal'
 import ScrollIntoView from 'react-scroll-into-view'
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 
+
+interface Photo {
+  id: string
+  url: string
+  description: string
+  urlModal: string
+  openModal: string
+}
+
+interface FetchPhotosResponse {
+  total_pages: number;
+  results: Photo[];
+}
+
 const App = () => {
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [photos, setPhotos] = useState<FetchPhotosResponse[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   const [inputSearch, setInputSearch] = useState<string>("");
-  const [page, setPage] = useState(1);
-  const [showBtn, setShowBtn] = useState(false);
+  const [page, setPage] = useState<number>(1);
+  const [showBtn, setShowBtn] = useState<boolean>(false);
   const [imageSrc, setImageSrc] = useState(null);
   const [description, setDescription] = useState(null);
-  const [scrollBtn, setScrollBtn] = useState(false);
+  const [scrollBtn, setScrollBtn] = useState<boolean>(false);
   const lastImageRef = useRef(null);
 
 useEffect(() => {
@@ -29,7 +43,7 @@ useEffect(() => {
     try {
       setLoading(true);
       setError(false);
-      const {total_pages,results}=await fetchPhotosByInput(inputSearch, page);
+      const {total_pages,results}: FetchPhotosResponse =await fetchPhotosByInput(inputSearch, page);
       setPhotos((prevPhotos) => [...prevPhotos, ...results]);
       
       setShowBtn(total_pages > page);
@@ -44,7 +58,7 @@ useEffect(() => {
     
 }, [inputSearch, page])
   
-const onSubmit = (inputSearch) => {
+const onSubmit = (inputSearch: string) => {
   setInputSearch(inputSearch);
   setPhotos([]);
   setPage(1);

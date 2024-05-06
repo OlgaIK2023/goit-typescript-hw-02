@@ -1,6 +1,6 @@
 import ImageCard from "../ImageCard/ImageCard"
 import css from "./ImageGallery.module.css"
-import { useRef } from "react"
+// import { useRef } from "react"
 
 import {Photo} from "../../App"
 import { ImageCardProps } from "../ImageCard/ImageCard"
@@ -8,8 +8,8 @@ import { ImageCardProps } from "../ImageCard/ImageCard"
 export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
   photo: Photo,
-  lastImageRef: React.RefObject<HTMLImageElement> | null,
-  // id: number,
+  // lastImageRef: React.RefObject<HTMLImageElement> | null,
+  lastImageRef: React.RefObject<HTMLLIElement> | null; 
   isLastImage: boolean
 }
 

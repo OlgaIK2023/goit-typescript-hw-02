@@ -40,6 +40,7 @@ const App = () => {
   const [description, setDescription] = useState<string | null>(null);
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
   const lastImageRef = useRef<HTMLImageElement>(null);
+  // const lastImageRef = useRef<HTMLLIElement | undefined> (null).
 
 useEffect(() => {
     if (!inputSearch) return;

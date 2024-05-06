@@ -1,5 +1,6 @@
 import ImageCard from "../ImageCard/ImageCard"
 import css from "./ImageGallery.module.css"
+import { useRef } from "react"
 
 import {Photo} from "../../App"
 import { ImageCardProps } from "../ImageCard/ImageCard"
@@ -11,6 +12,7 @@ export interface ImageGalleryProps extends ImageCardProps {
   // id: number,
   isLastImage: boolean
 }
+
 
 const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGalleryProps) => {
      

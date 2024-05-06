@@ -6,8 +6,10 @@ import { ImageCardProps } from "../ImageCard/ImageCard"
 
 export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
-  lastImageRef: React.RefObject<HTMLImageElement> | null
-  id: number
+  photo: Photo,
+  lastImageRef: React.RefObject<HTMLImageElement> | null,
+  // id: number,
+  isLastImage: boolean
 }
 
 const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGalleryProps) => {
@@ -18,7 +20,7 @@ const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGalleryProps) => 
              const isLastImage = index === photos.length - 1;
              return (
        <li className={css.gallery_item} key={photo.id} ref={isLastImage ? lastImageRef : null}>
-         <ImageCard url={photo.urls.small} description={photo.alt_description} urlModal={photo.urls.regular} openModal={openModal} />
+         <ImageCard id={photo.id} urls={photo.urls} url={photo.urls.small} alt_description={photo.alt_description} description={photo.alt_description} urlModal={photo.urls.regular} openModal={openModal} />
        </li>
      );
          })}

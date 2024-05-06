@@ -13,16 +13,15 @@ import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 
 export interface Photo {
-  id: number
+  
   url: string
   urls:
-   { small: string; regular: string }
+  { small: string; regular: string }
   description: string
+  id: number
   alt_description: string
   urlModal: string
-  // urls.small: string
-  // urls.regular: string
-  // openModal: string
+  
 }
 
 interface FetchPhotosResponse {

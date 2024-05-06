@@ -1,0 +1,8 @@
+.gallery_image {
+  display: block;
+  width: 280px;
+  height: 200px;
+  border-radius: 8px;
+  cursor:pointer;
+  object-fit: cover
+}

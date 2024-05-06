@@ -1,7 +1,11 @@
 import css from "./ImageCard.module.css"
 import {Photo} from "../../App"
 
-const ImageCard = ({ url, description, urlModal,openModal}: Photo) => {
+export interface ImageCardProps extends Photo {
+  openModal: (urlModal: string, description: string) => void;
+}
+
+const ImageCard = ({ url, description, urlModal,openModal}:ImageCardProps) => {
    
   return (
       <div>

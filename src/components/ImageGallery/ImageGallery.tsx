@@ -7,6 +7,7 @@ import { ImageCardProps } from "../ImageCard/ImageCard"
 export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
   lastImageRef: React.RefObject<HTMLImageElement> | null
+  id: number
 }
 
 const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGalleryProps) => {

@@ -13,7 +13,7 @@ import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 
 export interface Photo {
-  id: string
+  id: number
   url: string
   description: string
   urlModal: string

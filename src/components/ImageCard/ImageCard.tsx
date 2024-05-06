@@ -3,6 +3,7 @@ import {Photo} from "../../App"
 
 export interface ImageCardProps extends Photo {
   openModal: (urlModal: string, description: string) => void;
+  id: number
 }
 
 const ImageCard = ({ url, description, urlModal,openModal}:ImageCardProps) => {

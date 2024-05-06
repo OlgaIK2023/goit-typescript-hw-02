@@ -15,7 +15,7 @@ const App = () => {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [inputSearch, setInputSearch] = useState("");
+  const [inputSearch, setInputSearch] = useState<string>("");
   const [page, setPage] = useState(1);
   const [showBtn, setShowBtn] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);

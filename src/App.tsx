@@ -17,6 +17,8 @@ export interface Photo {
   url: string
   description: string
   urlModal: string
+  // urls.small: string
+  // urls.regular: string
   // openModal: string
 }
 

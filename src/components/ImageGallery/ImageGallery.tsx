@@ -4,12 +4,12 @@ import css from "./ImageGallery.module.css"
 import {Photo} from "../../App"
 import { ImageCardProps } from "../ImageCard/ImageCard"
 
-export interface ImageGallery extends ImageCardProps {
+export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
   lastImageRef: React.RefObject<HTMLImageElement> | null
 }
 
-const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGallery) => {
+const ImageGallery = ({ photos, openModal,lastImageRef }: ImageGalleryProps) => {
      
   return (
      <ul className={css.gallery_list} >

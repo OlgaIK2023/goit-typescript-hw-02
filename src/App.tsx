@@ -35,7 +35,7 @@ const App = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [inputSearch, setInputSearch] = useState<string>("");
+  const [inputSearch, setInputSearch] = useState<HTMLInputElement>();
   const [page, setPage] = useState<number>(1);
   const [showBtn, setShowBtn] = useState<boolean>(false);
   const [imageSrc, setImageSrc] = useState<string>('');
@@ -56,7 +56,7 @@ useEffect(() => {
     try {
       setLoading(true);
       setError(false);
-      const {total_pages,results}: FetchPhotosResponse =await fetchPhotosByInput(inputSearch, page);
+      const {total_pages,results}: FetchPhotosResponse =await fetchPhotosByInput(inputSearch!, page);
       
       setPhotos((prevPhotos) => [...prevPhotos, ...results]);
       
@@ -72,7 +72,7 @@ useEffect(() => {
     
 }, [inputSearch, page])
   
-const onSubmit = (inputSearch: string) => {
+const onSubmit = (inputSearch: HTMLInputElement): void => {
   setInputSearch(inputSearch);
   setPhotos([]);
   setPage(1);
@@ -91,7 +91,7 @@ const onSubmit = (inputSearch: string) => {
   };
 
   const closeModal = () => {
-    setImageSrc(null)
+    setImageSrc('')
   };
 
 

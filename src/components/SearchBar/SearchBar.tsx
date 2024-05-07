@@ -5,14 +5,14 @@ import { FormEvent } from 'react';
 
 export interface OnSubmitProps {
    
-  onSubmit: (inputSearch: HTMLFormElement) => [];
+  onSubmit: (inputSearch: HTMLInputElement) => void;
   
   
 }
 
 const SearchBar = ({ onSubmit }: OnSubmitProps) => {
     
-const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
+const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const inputSearch  = (event.target as HTMLFormElement).elements.namedItem('search') as HTMLInputElement;

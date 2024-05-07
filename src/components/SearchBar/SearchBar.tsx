@@ -5,7 +5,7 @@ import { FormEvent } from 'react';
 
 export interface OnSubmitProps {
    
-  onSubmit: (inputSearch: string) => void;
+  onSubmit: (inputSearch: HTMLFormElement) => [];
   
   
 }
@@ -18,7 +18,7 @@ const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     const inputSearch  = (event.target as HTMLFormElement).elements.namedItem('search') as HTMLInputElement;
     // const inputSearch = (form.elements.search as HTMLInputElement).value;
     // const inputSearch = form.elements.search.value;
-          if (inputSearch.trim() === "") {
+          if (inputSearch.value.trim() === "") {
               toast('Please enter search term!', {
                   style: {
                       borderRadius: '10px',

@@ -12,6 +12,7 @@ import ScrollIntoView from 'react-scroll-into-view'
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 
+import { ImageGalleryProps } from './components/ImageGallery/ImageGallery'
 export interface Photo {
   
   url: string
@@ -40,8 +41,14 @@ const App = () => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
-  const lastImageRef = useRef<HTMLImageElement>(null);
-  // const lastImageRef = useRef<HTMLLIElement | undefined> (null).
+  // const lastImageRef = useRef<HTMLImageElement>(null);
+  const lastImageRef = useRef<HTMLLIElement> (null)
+
+  const scrollToLastImage = () => {
+    if (lastImageRef.current) {
+    lastImageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+     }
+  };
 
 useEffect(() => {
     if (!inputSearch) return;
@@ -72,11 +79,7 @@ const onSubmit = (inputSearch: string) => {
   setShowBtn(false);
 }
 
-const scrollToLastImage = () => {
-  if (lastImageRef.current) {
-  lastImageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-   }
-};
+
   const onClickButton = () => {
     setPage((prevPage) => prevPage + 1);
     setScrollBtn(true);

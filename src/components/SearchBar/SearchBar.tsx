@@ -1,7 +1,7 @@
 import toast, { Toaster } from 'react-hot-toast'
 import css from "./SearchBar.module.css"
 import { FaSearch } from "react-icons/fa"
-import { FormEvent } from 'react';
+// import { FormEvent } from 'react';
 
 export interface OnSubmitProps {
    
@@ -15,7 +15,7 @@ const SearchBar = ({ onSubmit }: OnSubmitProps) => {
 const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const inputSearch  = (event.target as HTMLFormElement).elements.namedItem('search') as HTMLInputElement;
+    const inputSearch  = (form as HTMLFormElement).elements.namedItem('search') as HTMLInputElement;
     // const inputSearch = (form.elements.search as HTMLInputElement).value;
     // const inputSearch = form.elements.search.value;
           if (inputSearch.value.trim() === "") {

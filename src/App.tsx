@@ -38,8 +38,8 @@ const App = () => {
   const [inputSearch, setInputSearch] = useState<HTMLInputElement>();
   const [page, setPage] = useState<number>(1);
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
-  const [description, setDescription] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
   // const lastImageRef = useRef<HTMLImageElement>(null);
   const lastImageRef = useRef<HTMLLIElement> (null)
@@ -106,7 +106,7 @@ const onSubmit = (inputSearch: HTMLInputElement): void => {
       {error && <ErrorMessage />}
       {photos.length !== 0 && <ImageGallery photos={photos} openModal={openModal} lastImageRef={lastImageRef} onClickButton={onClickButton} isLastImage={false}  />}
       {showBtn && <LoadMoreBtn onClickButton={onClickButton} />}
-      <ImageModal isOpen={imageSrc !== null} onClose={closeModal} urlModal={imageSrc} description={description} />
+      <ImageModal isOpen={imageSrc !== ''} onClose={closeModal} urlModal={imageSrc} description={description} />
       {/* <ImageModal isOpen={imageSrc !== null} onClose={closeModal} urlModal={imageSrc} description={description} /> */}
       {scrollBtn && <ScrollIntoView selector="#header"><ScrollUp onScrollBtn={onScrollBtn} /></ScrollIntoView>}
     

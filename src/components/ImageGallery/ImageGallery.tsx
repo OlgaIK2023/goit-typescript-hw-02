@@ -11,8 +11,9 @@ export interface ImageGalleryProps extends ImageCardProps {
   photos: Photo[],
   photo: Photo,
   // lastImageRef: React.RefObject<HTMLImageElement> | null,
-  lastImageRef: React.RefObject<HTMLLIElement> | null; 
-  isLastImage: boolean
+  lastImageRef: RefObject<HTMLLIElement> | null; 
+  isLastImage: boolean,
+  onClickButton: () => void;
 }
 
 

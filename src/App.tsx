@@ -38,8 +38,8 @@ const App = () => {
   const [inputSearch, setInputSearch] = useState<HTMLInputElement>();
   const [page, setPage] = useState<number>(1);
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [imageSrc, setImageSrc] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
   // const lastImageRef = useRef<HTMLImageElement>(null);
   const lastImageRef = useRef<HTMLLIElement> (null)

@@ -1,7 +1,15 @@
 import toast, { Toaster } from 'react-hot-toast'
 import css from "./SearchBar.module.css"
 import { FaSearch } from "react-icons/fa"
-const SearchBar = ({ onSubmit }) => {
+
+export interface OnSubmitProps {
+   
+  onSubmit: (inputSearch: string) => void;
+  
+  
+}
+
+const SearchBar = ({ onSubmit }: OnSubmitProps) => {
     
 const handleOnSubmit = (event) => {
     event.preventDefault();

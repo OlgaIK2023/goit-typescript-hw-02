@@ -21,7 +21,7 @@ export interface Photo {
   description: string
   id: number
   alt_description: string
-  urlModal: string
+  urlModal: string 
   
 }
 
@@ -107,6 +107,7 @@ const onSubmit = (inputSearch: string) => {
       {photos.length !== 0 && <ImageGallery photos={photos} openModal={openModal} lastImageRef={lastImageRef} onClickButton={onClickButton} isLastImage={false}  />}
       {showBtn && <LoadMoreBtn onClickButton={onClickButton} />}
       <ImageModal isOpen={imageSrc !== null} onClose={closeModal} urlModal={imageSrc} description={description} />
+      {/* <ImageModal isOpen={imageSrc !== null} onClose={closeModal} urlModal={imageSrc} description={description} /> */}
       {scrollBtn && <ScrollIntoView selector="#header"><ScrollUp onScrollBtn={onScrollBtn} /></ScrollIntoView>}
     
     </>

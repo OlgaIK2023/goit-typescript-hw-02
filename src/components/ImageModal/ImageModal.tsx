@@ -16,9 +16,24 @@ const customStyles = {
     },
 };
 
+
+export interface ImageModalProps {
+  urlModal: string ;  
+  description: string; 
+  isOpen: boolean,
+  onClose: () => void;
+  
+}
+
 Modal.setAppElement('#root');
-Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.871)';
-const ImageModal = ({onClose, urlModal,isOpen,description}) => {
+
+// Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.871)';
+
+if (Modal.defaultStyles.overlay) {
+  Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.871)';
+}
+
+const ImageModal = ({onClose, urlModal,isOpen,description}: ImageModalProps) => {
   return (
     <Modal
         isOpen={isOpen}

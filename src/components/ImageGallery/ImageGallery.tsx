@@ -7,13 +7,13 @@ import {Photo} from "../../App"
 import { ImageCardProps } from "../ImageCard/ImageCard"
 
 
-export interface ImageGalleryProps extends ImageCardProps {
+export interface ImageGalleryProps extends Omit<ImageCardProps, keyof Photo> {
   photos: Photo[],
-  photo: Photo,
-  // lastImageRef: React.RefObject<HTMLImageElement> | null,
+  
   lastImageRef: RefObject<HTMLLIElement> | null; 
   isLastImage: boolean,
   onClickButton: () => void;
+  
 }
 
 

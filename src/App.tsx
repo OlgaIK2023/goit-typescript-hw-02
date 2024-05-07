@@ -12,7 +12,7 @@ import ScrollIntoView from 'react-scroll-into-view'
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 
-import { ImageGalleryProps } from './components/ImageGallery/ImageGallery'
+// import { ImageGalleryProps } from './components/ImageGallery/ImageGallery'
 export interface Photo {
   
   url: string
@@ -104,7 +104,7 @@ const onSubmit = (inputSearch: string) => {
       <SearchBar onSubmit={onSubmit} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      {photos.length !== 0 && <ImageGallery photos={photos} openModal={openModal} lastImageRef={lastImageRef}  onClickButton={onClickButton} />}
+      {photos.length !== 0 && <ImageGallery photos={photos} openModal={openModal} lastImageRef={lastImageRef} onClickButton={onClickButton} isLastImage={false}  />}
       {showBtn && <LoadMoreBtn onClickButton={onClickButton} />}
       <ImageModal isOpen={imageSrc !== null} onClose={closeModal} urlModal={imageSrc} description={description} />
       {scrollBtn && <ScrollIntoView selector="#header"><ScrollUp onScrollBtn={onScrollBtn} /></ScrollIntoView>}
